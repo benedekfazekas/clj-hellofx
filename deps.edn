@@ -1,0 +1,3 @@
+{:paths ["resources" "src" "classes"]
+ :deps {org.clojure/clojure {:mvn/version "RELEASE"}
+        org.openjfx/javafx-controls {:mvn/version "15.0.1"}}}
