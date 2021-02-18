@@ -1,0 +1,10 @@
+;; run vanilla clojure
+clojure -m thomasa.hellofx
+
+;; clean & compile
+rm -rf target
+mkdir -p target/classes
+clojure -e "(binding [*compile-path* \"target/classes\"] (compile 'thomasa.hellofx))"
+
+;; run compiled with javafx
+mvn -f fx-pom.xml javafx:run
