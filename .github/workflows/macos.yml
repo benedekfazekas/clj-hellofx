@@ -1,0 +1,44 @@
+name: MacOS
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup GraalVM environment
+        uses: DeLaGuardo/setup-graalvm@master
+        with:
+          graalvm-version: 21.0.0.java11
+      - name: Setup Clojure CLI
+        uses: DeLaGuardo/setup-clojure@master
+        with:
+          # To use Clojure CLI 1.10.1.561 based on tools.deps
+          cli: '1.10.1.469'
+
+      - name: Test clojure present
+        run: clojure -Sdescribe
+
+      - name: Make staging directory
+        run: mkdir staging
+
+      - name: Make target dir
+        run: mkdir -p target/classes
+
+      - name: Clojure Build
+        run: clojure -e "(binding [*compile-path* \"target/classes\"] (compile 'thomasa.hellofx))"
+
+      - name: Gluon Build
+        run: mvn -f fx-pom.xml -Pdesktop client:build client:package
+        env:
+          GRAALVM_HOME: ${{ env.JAVA_HOME }}
+
+      - name: Copy native client to staging
+        run: cp -r target/client/x86_64-darwin/HelloGluon* staging
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
