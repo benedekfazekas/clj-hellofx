@@ -9,7 +9,7 @@
   <name>clj-hellofx</name>
 
   <properties>
-    <main.class>thomasa.HelloFX</main.class>
+    <main.class>thomasa.Main</main.class>
   </properties>
 
   <dependencies>
