@@ -4,7 +4,12 @@ clojure -m thomasa.hellofx
 ;; clean & compile
 rm -rf target
 mkdir -p target/classes
-clojure -e "(binding [*compile-path* \"target/classes\"] (compile 'thomasa.hellofx))"
+clojure -e "(binding [*compile-path* \"target/classes\"] (compile 'thomasa.hellofx) (compile 'thomasa.main))"
 
 ;; run compiled with javafx
-mvn -f fx-pom.xml javafx:run
+mvn javafx:run
+
+;; run with java
+;; Main of class not extending javafx.application.Application necessary to work around javafx module check
+;; see https://github.com/javafxports/openjdk-jfx/issues/236#issuecomment-426583174
+java -cp `clj -Spath` thomasa.Main
