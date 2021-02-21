@@ -30,4 +30,4 @@
     (.show stage)))
 
 (defn -main [& args]
-  (println "hello, no fx"))
+  (Application/launch thomasa.HelloFX (into-array String args)))
