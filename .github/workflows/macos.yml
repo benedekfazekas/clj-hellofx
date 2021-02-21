@@ -30,7 +30,7 @@ jobs:
         run: clojure -e "(binding [*compile-path* \"target/classes\"] (compile 'thomasa.hellofx))"
 
       - name: Gluon Build
-        run: mvn -f fx-pom.xml -Pdesktop client:build client:package
+        run: mvn client:build client:package
         env:
           GRAALVM_HOME: ${{ env.JAVA_HOME }}
 
