@@ -9,24 +9,23 @@
   <name>clj-hellofx</name>
 
   <properties>
-    <main.class>thomasa.HelloFX</main.class>
+    <main.class>thomasa.Main</main.class>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>15.0.1</version>
+      <version>16</version>
     </dependency>
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>clojure</artifactId>
-      <version>RELEASE</version>
+      <version>1.10.3</version>
     </dependency>
   </dependencies>
 
   <build>
-    <sourceDirectory>target/classes</sourceDirectory>
     <resources>
       <resource>
         <directory>resources</directory>
@@ -51,10 +50,17 @@
       <plugin>
         <groupId>com.gluonhq</groupId>
         <artifactId>client-maven-plugin</artifactId>
-        <version>0.1.36</version>
+        <version>0.1.38</version>
         <configuration>
           <target>${client.target}</target>
           <mainClass>${main.class}</mainClass>
+          <!-- <verbose>true</verbose> -->
+          <nativeImageArgs>
+            <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
+            <nativeImageArg>--initialize-at-build-time=clojure</nativeImageArg>
+            <nativeImageArg>--no-server</nativeImageArg>
+            <nativeImageArg>--no-fallback</nativeImageArg>
+          </nativeImageArgs>
         </configuration>
       </plugin>
     </plugins>
