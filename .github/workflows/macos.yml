@@ -34,8 +34,11 @@ jobs:
         env:
           GRAALVM_HOME: ${{ env.JAVA_HOME }}
 
+      - name: list artefacts
+        run: ls -la target/client/x86_64-darwin/
+
       - name: Copy native client to staging
-        run: cp -r target/client/x86_64-darwin/HelloGluon* staging
+        run: cp -r target/client/x86_64-darwin/clj-hellofx* staging
 
       - name: Upload
         uses: actions/upload-artifact@v2
