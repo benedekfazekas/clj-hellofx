@@ -57,6 +57,9 @@
           <mainClass>${main.class}</mainClass>
           <nativeImageArgs>
             <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
+            <nativeImageArg>--no-server</nativeImageArg>
+            <nativeImageArg>--no-fallback</nativeImageArg>
+            <nativeImageArg>-cp $(clojure -Spath)</nativeImageArg>
           </nativeImageArgs>
         </configuration>
       </plugin>
