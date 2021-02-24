@@ -26,7 +26,6 @@
   </dependencies>
 
   <build>
-    <sourceDirectory>target/classes</sourceDirectory>
     <resources>
       <resource>
         <directory>resources</directory>
