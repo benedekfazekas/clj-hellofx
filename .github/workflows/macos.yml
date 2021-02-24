@@ -27,7 +27,7 @@ jobs:
         run: mkdir -p target/classes
 
       - name: Clojure Build
-        run: clojure -e "(binding [*compile-path* \"target/classes\"] (compile 'thomasa.hellofx) (compile 'thomasa.main))"
+        run: clojure -J-Dclojure.compiler.direct-linking=true -e "(binding [*compile-path* \"target/classes\"] (compile 'thomasa.hellofx) (compile 'thomasa.main))"
 
       - name: Gluon Build
         run: mvn client:build client:package
