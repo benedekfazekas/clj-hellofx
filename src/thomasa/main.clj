@@ -1,4 +1,5 @@
 (ns thomasa.main
+  (:require [clojure.core.server])
   (:import [thomasa HelloFX])
   (:gen-class
    :name thomasa.Main))
