@@ -15,7 +15,7 @@
   (let [{:keys [major minor incremental qualifier]} *clojure-version*
         label (Label. (str "Hello, JavaFX " (System/getProperty "javafx.version")
                            ", running on Java " (System/getProperty "java.version")
-                           (format " and on Clojure %d.%d.%d-%s" major minor incremental qualifier)
+                           (format " and on Clojure %d.%d.%d%s" major minor incremental (or (and qualifier (str "-" qualifier)) ""))
                            "."))
         image-view (ImageView. (Image. (io/input-stream (io/resource "openduke.png"))))
         root (VBox. 30 (into-array Node [image-view label]))

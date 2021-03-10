@@ -16,12 +16,12 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>15.0.1</version>
+      <version>16</version>
     </dependency>
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>clojure</artifactId>
-      <version>1.10.3-rc1</version>
+      <version>1.10.3</version>
     </dependency>
   </dependencies>
 
@@ -57,7 +57,7 @@
           <verbose>true</verbose>
           <nativeImageArgs>
             <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
-            <nativeImageArg>--initialize-at-run-time=javafx,com.sun.javafx</nativeImageArg>
+            <nativeImageArg>--initialize-at-build-time=clojure</nativeImageArg>
             <nativeImageArg>--no-server</nativeImageArg>
             <nativeImageArg>--no-fallback</nativeImageArg>
           </nativeImageArgs>
