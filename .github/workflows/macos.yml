@@ -21,7 +21,7 @@ jobs:
         run: clojure -Sdescribe
 
       - name: clojure prepare
-        run: clojure -P
+        run: clojure -P && cat /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/clojure*.edn
 
       - name: Make staging directory
         run: mkdir staging
