@@ -2,6 +2,7 @@
  :deps {org.clojure/clojure {:mvn/version "1.10.3"}
         org.openjfx/javafx-controls {:mvn/version "16"}}
  :aliases {:depstar
-           {:deps {com.github.seancorfield/depstar {:mvn/version "2.0.193"}}
+           {:replace-deps
+            {com.github.seancorfield/depstar {:mvn/version "2.0.193"}}
             :ns-default hf.depstar
             :exec-args {}}}}

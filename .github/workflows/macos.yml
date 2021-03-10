@@ -27,7 +27,7 @@ jobs:
         run: mkdir -p target/classes
 
       - name: Clojure uberjar Build
-        run: clojure -X:depstar uberjar :jar clj-hellofx-standalone.jar :aot true :compile-ns '[thomasa.hellofx thomasa.main]' :main-class thomasa.Main
+        run: clojure -X:depstar uberjar :jar ./clj-hellofx-standalone.jar :aot true :compile-ns '[thomasa.hellofx thomasa.main]' :main-class thomasa.Main
 
       - name: unzip uberjar
         run: cd target/classes && unzip ../../clj-hellofx-standalone.jar
