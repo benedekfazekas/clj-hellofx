@@ -26,8 +26,11 @@ jobs:
       - name: Make target dir
         run: mkdir -p target/classes
 
-      - name: Clojure Build
-        run: clojure -J-Dclojure.compiler.direct-linking=true -e "(binding [*compile-path* \"target/classes\"] (compile 'thomasa.hellofx) (compile 'thomasa.main))"
+      - name: Clojure uberjar Build
+        run: clojure -X:depstar uberjar :jar clj-hellofx-standalone.jar :aot true :compile-ns '[thomasa.hellofx thomasa.main]' :main-class thomasa.Main
+
+      - name: unzip uberjar
+        run: cd target/classes && unzip ../../clj-hellofx-standalone.jar
 
       - name: Gluon Build
         run: mvn client:build client:package
