@@ -58,6 +58,8 @@
           <nativeImageArgs>
             <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
             <nativeImageArg>--initialize-at-build-time=clojure</nativeImageArg>
+            <nativeImageArg>--no-server</nativeImageArg>
+            <nativeImageArg>--allow-incomplete-classpath</nativeImageArg>
             <nativeImageArg>--no-fallback</nativeImageArg>
           </nativeImageArgs>
         </configuration>
