@@ -58,7 +58,7 @@
           <verbose>true</verbose>
           <nativeImageArgs>
             <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
-            <nativeImageArg>--initialize-at-run-time=clojure.core.server__init</nativeImageArg>
+            <nativeImageArg>--initialize-at-run-time=clojure.core.server__init,clojure.edn__init,clojure.main__init</nativeImageArg>
             <nativeImageArg>--initialize-at-build-time=clojure</nativeImageArg>
             <nativeImageArg>--no-server</nativeImageArg>
             <nativeImageArg>--no-fallback</nativeImageArg>
