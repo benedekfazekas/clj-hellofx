@@ -54,7 +54,7 @@
         <configuration>
           <target>${client.target}</target>
           <mainClass>${main.class}</mainClass>
-          <verbose>true</verbose>
+          <!-- <verbose>true</verbose> -->
           <nativeImageArgs>
             <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
             <nativeImageArg>--initialize-at-build-time=clojure</nativeImageArg>
