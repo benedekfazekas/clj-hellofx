@@ -9,7 +9,7 @@
   <name>clj-hellofx</name>
 
   <properties>
-    <main.class>thomasa.Main</main.class>
+    <main.class>hellofx.HelloFX</main.class>
   </properties>
 
   <dependencies>
@@ -26,11 +26,6 @@
   </dependencies>
 
   <build>
-    <resources>
-      <resource>
-        <directory>resources</directory>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -54,10 +49,11 @@
         <configuration>
           <target>${client.target}</target>
           <mainClass>${main.class}</mainClass>
+          <reflectionList>thomasa.hello__init</reflectionList>
           <!-- <verbose>true</verbose> -->
           <nativeImageArgs>
             <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
-            <nativeImageArg>--initialize-at-build-time=clojure</nativeImageArg>
+            <nativeImageArg>--initialize-at-build-time=clojure,thomasa</nativeImageArg>
             <nativeImageArg>--no-server</nativeImageArg>
             <nativeImageArg>--no-fallback</nativeImageArg>
           </nativeImageArgs>
