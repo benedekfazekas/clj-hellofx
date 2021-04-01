@@ -35,10 +35,10 @@ jobs:
         run: mkdir -p target/classes
 
       - name: Clojure Build
-        run: clojure -J-Dclojure.compiler.direct-linking=true -e "(binding [*compile-path* \"target/classes\"] (compile 'thomasa.hello))"
+        run: clojure "-J-Dclojure.compiler.direct-linking=true" -e "(binding [*compile-path* \"target/classes\"] (compile 'thomasa.hello))"
 
       - name: Gluon Build
-        run: mvn -Pdesktop client:build client:package
+        run: mvn client:build client:package
         env:
           GRAALVM_HOME: ${{ env.JAVA_HOME }}
 
